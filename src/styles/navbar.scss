@@ -1,0 +1,19 @@
+header {
+  padding: 2rem;
+  background-color: #e90033;
+  margin-bottom: 4rem;
+
+  ul {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    list-style: none;
+    li {
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+    }
+  }
+}
