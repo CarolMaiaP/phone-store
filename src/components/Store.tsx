@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { api } from '../lib/axios'
+import '../styles/store.scss'
 
 export function Store(){
   const [cellphones, setCellphones] = useState<any>([])

@@ -1,0 +1,23 @@
+.store {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  grid-row-gap: 2rem;
+  place-items: center;
+  margin-bottom: 3rem;
+  padding: 0 3rem;
+
+  .cellphone {
+    border: 1px solid gray;
+    padding: 2rem;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+
+    img {
+      max-width: 100px;
+    }
+  }
+}
