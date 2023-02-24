@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { api } from '../lib/axios'
 import '../styles/store.scss'
 import {BsFillCartPlusFill, BsCartCheckFill} from 'react-icons/bs'
+import { getItem, setItem } from '../services/LocalStorage'
 
 interface CellphoneProps{
   id: string,
@@ -17,7 +18,6 @@ export function Store(){
   async function fetchCellphones(){
     const response = await api.get('search?q=celular')
     setCellphones(response.data.results)
-    console.log(response.data.results)
   }
 
   useEffect(() => {
@@ -33,8 +33,10 @@ export function Store(){
     if(element){
       const arrFilter = cart.filter((e) => e.id !== obj.id)
       setCart(arrFilter)
+      setItem("carrinhoYt", arrFilter)
     }else{
       setCart([...cart, obj])
+      setItem("carrinhoYt", [...cart, obj])
     }
   }
 
