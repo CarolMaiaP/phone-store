@@ -3,13 +3,21 @@ import { api } from '../lib/axios'
 import '../styles/store.scss'
 import {BsFillCartPlusFill, BsCartCheckFill} from 'react-icons/bs'
 
+interface CellphoneProps{
+  id: string,
+  title: string,
+  thumbnail: string,
+  price: number
+}
+
 export function Store(){
-  const [cellphones, setCellphones] = useState([])
-  const [cart, setCart] = useState([])
+  const [cellphones, setCellphones] = useState<CellphoneProps[]>([])
+  const [cart, setCart] = useState<CellphoneProps[]>([])
 
   async function fetchCellphones(){
     const response = await api.get('search?q=celular')
     setCellphones(response.data.results)
+    console.log(response.data.results)
   }
 
   useEffect(() => {
@@ -18,10 +26,13 @@ export function Store(){
 
   function handleAddCartButton(obj:any){
     const element = cart.find((e) => e.id === obj.id)
+    const fruits = [{name: "banana"}, {name: "Uva"}, {name: "Pera"}]
+
+    console.log(fruits)
 
     if(element){
-      const arrFilmer = cart.filter((e) => e.id !== obj.id)
-      setCart(arrFilmer)
+      const arrFilter = cart.filter((e) => e.id !== obj.id)
+      setCart(arrFilter)
     }else{
       setCart([...cart, obj])
     }
