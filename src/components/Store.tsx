@@ -13,7 +13,7 @@ interface CellphoneProps{
 
 export function Store(){
   const [cellphones, setCellphones] = useState<CellphoneProps[]>([])
-  const [cart, setCart] = useState<CellphoneProps[]>([])
+  const [cart, setCart] = useState<CellphoneProps[]>( getItem("carrinhoYt") || [])
 
   async function fetchCellphones(){
     const response = await api.get('search?q=celular')
