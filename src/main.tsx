@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Home } from './pages/Home'
-import { Cart } from './components/Cart'
+import { Cart } from './pages/Cart'
 import { Profile } from './components/Profile'
 import './styles/global.scss'
 
